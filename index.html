@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DriveAdapt-GS: Adaptive Parameter, Loss, and Data Allocation for Dynamic Driving Scene Reconstruction">
+  <meta name="keywords" content="3D-GS, self-driving">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DriveAdapt-GS</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="./static/css/bootstrap-4.4.1.css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  
+  
+  
+  
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/cat.png">
+
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/app.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+
+  <script src="./static/js/event_handler.js"></script>
+  <script src="./static/js/dics.original.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop"  style="max-width: 1225px; margin: 0 auto;">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="column is-full-width">
+          
+          <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>DriveAdapt-GS</strong></h1>
+          <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">Adaptive Parameter, Loss, and Data Allocation for Dynamic Driving Scene Reconstruction</h2>
+          <br>
+          <h2 class="title is-4 publication-title" style="margin-top: 0; margin-bottom: 0">In order to comply with the double-blind protocol, we concealed the author information.</h2> 
+          <br>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"> </span>&nbsp;&nbsp;&nbsp;&nbsp;            
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://driveadapt-gs.netlify.app/"
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>  
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://driveadapt-gs.netlify.app/"
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop" style="max-width: 1225px; margin: 0 auto;">
+
+    
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <div class="content has-text-centered" >
+          <video class="video" width="100%" controls loop playsinline autoplay muted>
+               <source src="video_new/LR_SGS_Video_v3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop" style="max-width: 1225px; margin: 0 auto;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              Recent advances in 3D Gaussian Splatting (3DGS) have demonstrated the feasibility of dynamic driving-scene reconstruction. However, the optimization process is often substantially imbalanced: static backgrounds dominate observations and converge relatively early, whereas dynamic actors receive sparse and uneven supervision due to limited visibility and frequent occlusions. Consequently, uniform sampling and joint optimization tend to over-allocate optimization effort to static regions while leaving dynamic actors under-optimized. To address this issue, we propose DriveAdapt-GS, an adaptive training-allocation framework that coordinates the active parameter subspace, dynamic-region supervision strength, and training-view sampling. Specifically, Dynamic-Focused Staged Optimization temporarily restricts parameter updates to dynamic nodes and restores joint refinement according to online reconstruction progress; Dynamic Region Error-Adaptive Weighting adapts dynamic-region supervision according to online reconstruction errors; and Dynamic Error-Driven Sampling prioritizes challenging training views that exhibit recent reconstruction improvement. Compared with OmniRe, our method improves human PSNR by 1.16 dB on Waymo and dynamic PSNR by 1.35 dB on nuScenes. Experiments demonstrate that our method effectively improves dynamic reconstruction while maintaining overall scene quality.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop" style="max-width: 1225px; margin: 0 auto;">
+
+    <!-- Method OverView -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method OverView</h2>
+
+        <img src="./img/method_overview.jpg" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+          Our framework
+adaptively reallocates optimization effort at the data, loss, and parameter levels.
+Dynamic-Focused Staged Optimization, Dynamic Region Error-Adaptive Weighting, and Dynamic Error-Driven Sampling respectively determine the sampling distribution, dynamic-region loss scale, and active parameter set, jointly improving the optimization of dynamic actors.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+  </div>
+</section>
+
+
+
+  
+<section class="section">
+  <div class="container is-max-desktop"  style="max-width: 1200px; margin: 0 auto;">
+
+    <!-- More results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Here, we present the comparisons of our method against the current state-of-the-art methods, 
+            including DeformGS, PVG, StreetGS, and OmniRe.
+          </p>
+        </div>      
+
+
+        <div class="content has-text-justified">
+          <p>
+            We show the comparisons with baselines on individual sequences from the Waymo Open dataset. 
+          </p>
+        </div>
+        
+        <div class="text-center">
+            Qualitative Results
+        </div>
+        <br>
+        <div class="container" style="max-width: 1225px; margin: 0 auto;">
+          <ul class="nav nav-tabs nav-fill nav-justified" id="replica-rgbd">
+              <li class="nav-item">
+                <a class="nav-link active" onclick="QualitativeSceneEvent(0)">002</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " onclick="QualitativeSceneEvent(1)">114</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " onclick="QualitativeSceneEvent(2)">754</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="QualitativeSceneEvent(3)">015</a>
+              </li>
+          </ul>
+          <div class="b-dics" style="width: 1225px; font-weight: 600;">
+              <img src="img/waymo/comp/002_box/deformgs.png" alt="DeformGS">
+              <img src="img/waymo/comp/002_box/pvg.png" alt="PVG">
+              <img src="img/waymo/comp/002_box/streetgs.png" alt="StreetGS">
+              <img src="img/waymo/comp/002_box/omnire.png" alt="OmniRe">
+              <img src="img/waymo/comp/002_box/ours.png" alt="Ours">
+              <img src="img/waymo/comp/002_box/gt.png" alt="GT">
+          </div>
+        </div>
+
+
+        <br>
+
+        <h3 class="title is-4">Scene Editing</h3>
+        <div class="content has-text-justified">
+          <p>
+Benefiting from the structured scene factor graph and the high-quality reconstruction produced by our method, our method also supports effective downstream scene editing.
+          </p>
+        </div>
+        <br>
+
+        <div class="content has-text-centered" >
+          <video class="video" width="100%" id="xyalias1" loop playsinline autoplay muted src="video_new/color_Ego-Trajectory_Editing.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias1Merge"></canvas>
+        </div>
+
+        <div class="content has-text-centered small-video-comparison" >
+          <video class="video" width="50%" id="xyalias2" loop playsinline autoplay muted src="video_new/color_Object_Removal.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias2Merge"></canvas>
+        </div>
+
+        <div class="content has-text-centered small-video-comparison" >
+          <video class="video" width="50%" id="xyalias3" loop playsinline autoplay muted src="video_new/color_Object_Trajectory_Editing.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias3Merge"></canvas>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container" style="max-width: 1225px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website adapted from the Nerfies templates and <a href="https://github.com/segs-slam/segs-slam.github.io">segs-slam</a>, which is licensed under  a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            If you use the source code  
+            of this website, 
+            please also link back to the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a> in your footer.
+            The video comparison and image comparison  with sliding bar is from <a href="https://niujinshuchong.github.io/mip-splatting/">Ref-NeRF</a>. 
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
